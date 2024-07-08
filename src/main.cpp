@@ -1,4 +1,8 @@
 #include <Arduino.h>
+#include <Servo.h>
+
+Servo frontServo;
+Servo backServo;
 
 #define ENC1 2
 #define ENC2 3
@@ -13,6 +17,9 @@
 
 #define MID1 A5
 #define MID2 A6
+
+#define F_SERVO 40
+#define B_SERVO 44
 
 int S1[] = {A4, A3, A2, A1, A0};
 int S2[] = {A8, A9, A10, A11, A12};
@@ -30,6 +37,8 @@ void enc1_isr() { enc1_counter++; }
 
 void enc2_isr() { enc2_counter++; }
 
+void halt();
+
 void forward(int pwm1, int pwm2 = 0)
 {
   if (pwm2 == 0)
@@ -43,6 +52,17 @@ void forward(int pwm1, int pwm2 = 0)
   analogWrite(R2, 0);
 }
 
+void forwardWithEncoder(int pwm, int ticks)
+{
+  enc1_counter = 0;
+  while (enc1_counter < ticks)
+  {
+    forward(pwm);
+    interrupts();
+  }
+  halt();
+}
+
 void backward(int pwm1, int pwm2 = 0)
 {
   if (pwm2 == 0)
@@ -54,6 +74,18 @@ void backward(int pwm1, int pwm2 = 0)
   analogWrite(L2, pwm1);
   analogWrite(R1, 0);
   analogWrite(R2, pwm2);
+}
+
+void backwardWithEncoder(int pwm, int ticks, int stopdelay = 0)
+{
+  enc1_counter = 0;
+  while (enc1_counter < ticks)
+  {
+    backward(pwm);
+    interrupts();
+  }
+  delay(stopdelay);
+  halt();
 }
 
 void halt()
@@ -129,10 +161,32 @@ void left90(int pwm)
   halt();
 }
 
+void leftTurnEncoder(int pwm, int ticks)
+{
+  enc1_counter = 0;
+  while (enc1_counter < ticks)
+  {
+    left(pwm);
+    interrupts();
+  }
+  halt();
+}
+
 void right90(int pwm)
 {
   enc1_counter = 0;
   while (enc1_counter < 240)
+  {
+    right(pwm);
+    interrupts();
+  }
+  halt();
+}
+
+void rightTurnEncoder(int pwm, int ticks)
+{
+  enc1_counter = 0;
+  while (enc1_counter < ticks)
   {
     right(pwm);
     interrupts();
@@ -171,12 +225,11 @@ void readSensorValsDebugDigital(int *sensors)
   delay(100);
 }
 
-void linefollow()
+void linefollow(int speed = 50)
 {
   // white 1
   // black 0
 
-  int speed = 50;
   int left1 = analogRead(S1[1]) > 800 ? 1 : 0;
   int middle1 = analogRead(S1[2]) > 800 ? 1 : 0;
   int right1 = analogRead(S1[3]) > 800 ? 1 : 0;
@@ -236,6 +289,21 @@ void linefollowUntil(int strips)
   }
 }
 
+void linefollowEncoder(int ticks)
+{
+  Serial.print("ENCODER1: ");
+  Serial.println(enc1_counter);
+  enc1_counter = 0;
+  Serial.print("ENCODER2: ");
+  Serial.println(enc1_counter);
+  while (enc1_counter < ticks)
+  {
+    linefollow(30);
+    interrupts();
+  }
+  halt();
+}
+
 void stripCountDebug(int strips)
 {
   int leftm1 = analogRead(MID2) > 700 ? 1 : 0;
@@ -281,6 +349,129 @@ void forwardUntilMiddleSensors()
   halt();
 }
 
+void frontServoMove(int start, int end)
+{
+  if (start > end)
+  {
+    for (int i = start; i > end; i--)
+    {
+      frontServo.write(i);
+      delay(30);
+    }
+  }
+  else
+  {
+    for (int i = start; i < end; i++)
+    {
+      frontServo.write(i);
+      delay(30);
+    }
+  }
+}
+
+void backServoMove(int start, int end)
+{
+  if (start > end)
+  {
+    for (int i = start; i > end; i--)
+    {
+      backServo.write(i);
+      delay(30);
+    }
+  }
+  else
+  {
+    for (int i = start; i < end; i++)
+    {
+      backServo.write(i);
+      delay(30);
+    }
+  }
+}
+
+void backLinefollow(int speed = 50)
+{
+  // white 1
+  // black 0
+
+  // S2[3] == left
+  // S2[2] == middle
+  // S2[1] == right
+
+  int left1 = analogRead(S2[3]) > 800 ? 1 : 0;
+  int middle1 = analogRead(S2[2]) > 800 ? 1 : 0;
+  int right1 = analogRead(S2[1]) > 800 ? 1 : 0;
+
+  if (left1 == 0 && middle1 == 0 && right1 == 0)
+  {
+    backward(speed);
+  }
+  else if (left1 == 1 && middle1 == 0 && right1 == 1)
+  {
+    backward(speed);
+  }
+  else if (left1 == 0 && middle1 == 1 && right1 == 1)
+  {
+    right(speed);
+  }
+  else if (left1 == 1 && middle1 == 1 && right1 == 0)
+  {
+    left(speed);
+  }
+  else
+  {
+    backward(speed);
+  }
+}
+
+void backLinefollowUntil(int strips)
+{
+  while (true)
+  {
+    int leftm1 = analogRead(MID2) > 700 ? 1 : 0;
+    unsigned long currentMillis = millis();
+
+    if (leftm1 == 0 && !is_line)
+    {
+      strips_count++;
+      is_line = true;
+      previousMillis = currentMillis;
+    }
+    else if (currentMillis - previousMillis > intervalMillis)
+    {
+      is_line = false;
+    }
+
+    if (strips_count < strips)
+    {
+      backLinefollow();
+      Serial.print("hello: ");
+      Serial.println(strips_count);
+    }
+    else
+    {
+      halt();
+      strips_count = 0;
+      return;
+    }
+  }
+}
+
+void backLinefollowEncoder(int ticks)
+{
+  Serial.print("ENCODER1: ");
+  Serial.println(enc1_counter);
+  enc1_counter = 0;
+  Serial.print("ENCODER2: ");
+  Serial.println(enc1_counter);
+  while (enc1_counter < ticks)
+  {
+    backLinefollow(30);
+    interrupts();
+  }
+  halt();
+}
+
 void configurePins()
 {
   pinMode(ENC1, INPUT);
@@ -299,6 +490,12 @@ void configurePins()
   pinMode(MID1, INPUT);
   pinMode(MID2, INPUT);
 
+  frontServo.attach(F_SERVO);
+  backServo.attach(B_SERVO);
+
+  frontServo.write(95);
+  backServo.write(95);
+
   for (size_t i = 0; i < sizeof(S1) / sizeof(int); i++)
   {
     pinMode(S1[i], INPUT);
@@ -308,18 +505,96 @@ void configurePins()
   {
     pinMode(S2[i], INPUT);
   }
+
+  delay(1000);
 }
 
 void red()
 {
+  // start
   linefollowUntil(4);
   delay(1000);
+  // first right turn
   right90(80);
   delay(1000);
+  // move forward until 3 strips
+  forwardWithEncoder(50, 80);
   linefollowUntil(3);
+  delay(1000);
+  // turn right after 3 strips
+  right90(80);
+  delay(1000);
+  // move back to center on line
+  backwardWithEncoder(50, 150, 200);
+  delay(1000);
+  // move servo down for pickup
+  frontServoMove(95, 0);
+  delay(1000);
+  // move until first tree
+  linefollowEncoder(280);
+  delay(1000);
+  // move servo up after pickup
+  frontServoMove(0, 45);
+  delay(1000);
+  // move forward for 1 strip
+  linefollowUntil(1);
+  delay(1000);
+  // turn right for rock
+  right90(83);
+  backServoMove(95, 0);
+  delay(1000);
+  // move back 3 strips
+  backwardWithEncoder(50, 60);
+  backLinefollowUntil(3);
+  delay(1000);
+  //move to pick up rock
+  backLinefollowEncoder(100);
+  delay(1000);
+  backServoMove(0, 45);
+  delay(1000);
+  // turn 180 after rock pick up
+  rightTurnEncoder(60, (240 * 2) + 5);
+  delay(1000);
+  // adjust to line for tree drop
+  backLinefollowEncoder(200);
+  delay(500);
+  linefollowEncoder(200);
+  delay(1000);
+  // drop tree
+  frontServoMove(45, 0);
+  delay(1000);
+  // move back 3 strip to drop rock at original tree position
+  backLinefollowUntil(3);
+  delay(1000);
+  backLinefollowEncoder(90);
+  delay(1000);
+  // drop rock
+  backServoMove(45, 0);
+  delay(1000);
+  // move back to intersection after rock drop
+  linefollowUntil(1);
+  delay(500);
+  // move front servo up for the turn
+  frontServoMove(0, 95);
+  delay(500);
+  // turn right
+  right90(80);
+  delay(1000);
+  // move forward away from tree to adjust for line
+  backLinefollowEncoder(100);
+  delay(1000);
+  // move front servo down for tree pickup
+  frontServoMove(95, 0);
+  delay(500);
+  // move forward to tree
+  linefollowEncoder(200);
+  delay(500);
+  // move front servo up after tree pickup
+  frontServoMove(0, 45);
+  delay(500);
   while (1)
   {
-    Serial.println("stuck");
+    Serial.println("END");
   }
 }
 
@@ -330,7 +605,6 @@ void blue()
 void setup()
 {
   Serial.begin(9600);
-
   configurePins();
 }
 
@@ -340,7 +614,6 @@ void loop()
   {
     // RED ARENA
     red();
-    // stripCountDebug(5);
   }
   else
   {
