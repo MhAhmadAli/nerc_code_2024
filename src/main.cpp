@@ -3,7 +3,12 @@
 #include "EncoderControl.h"
 #include "LineFollow.h"
 #include "ServoControl.h"
-#include "Red/ForwardDiagonal.h"
+
+// Red Arena
+#include "Red/Grid1.h"
+#include "Red/Grid2.h"
+
+// Blue Arena
 #include "Blue/BackwardDiagonal.h"
 
 Servo frontServo;
@@ -135,7 +140,7 @@ void red()
   // first right turn
   right90(80);
   delay(1000);
-  forwardDiagonal();
+  grid2();
   // ============= third tree and rock =============
   while (1)
   {

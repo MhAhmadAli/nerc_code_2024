@@ -2,9 +2,9 @@
 #include "ServoControl.h"
 #include "LineFollow.h"
 #include "EncoderControl.h"
-#include "Red/ForwardDiagonal.h"
+#include "Red/Grid1.h"
 
-void forwardDiagonal() {
+void grid1() {
   // move forward until 3 strips
   forwardWithEncoder(50, 80);
   linefollowUntil(3);
