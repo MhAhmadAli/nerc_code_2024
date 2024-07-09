@@ -4,6 +4,12 @@
 #include "EncoderControl.h"
 #include "Blue/BlueGrid1.h"
 
+/*
+  * Grid 1
+  *
+  *  grid is 3x3 the points are (1,1), (2,2) and (3,3)
+*/
+
 void blue_grid1()
 {
   // move forward until 3 strips
@@ -52,7 +58,7 @@ void blue_grid1()
   // adjust to line for tree drop
   backLinefollowUntil(2);
   delay(500);
-  linefollowEncoder(400);
+  linefollowEncoder(410);
   delay(1000);
   // drop tree
   frontServoMove(90, 0);

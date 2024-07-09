@@ -7,7 +7,7 @@
 /*
  * Grid 2
  *
- *  grid is 3x3 the points are (1,1), (2,2) and (3,3)
+ *  grid is 3x3 the points are (1,3), (2,2) and (3,1)
  */
 
 void red_grid2()

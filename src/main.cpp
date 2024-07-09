@@ -7,6 +7,7 @@
 // Red Arena
 #include "Red/RedGrid1.h"
 #include "Red/RedGrid2.h"
+#include "Red/RedGrid3.h"
 
 // Blue Arena
 #include "Blue/BlueGrid1.h"
