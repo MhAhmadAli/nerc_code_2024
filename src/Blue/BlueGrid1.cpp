@@ -2,37 +2,38 @@
 #include "ServoControl.h"
 #include "LineFollow.h"
 #include "EncoderControl.h"
-#include "Red/Grid1.h"
+#include "Blue/BlueGrid1.h"
 
-void grid1() {
+void blue_grid1()
+{
   // move forward until 3 strips
   forwardWithEncoder(50, 80);
   linefollowUntil(3);
   delay(1000);
   // turn right after 3 strips
-  right90(80);
+  left90(80);
   delay(1000);
   // move back to center on line
   backwardWithEncoder(50, 150, 200);
-  delay(1000);
+  delay(500);
   // move servo down for pickup
-  // frontServoMove(95, 0);
+  frontServoMove(95, 0);
   frontServo.write(0);
 
-  delay(1000);
+  delay(500);
 
   // ============= first tree and rock =============
   // move until first tree
   linefollowEncoder(280);
-  delay(1000);
+  delay(500);
   // move servo up after pickup
   frontServoMove(0, 90);
-  delay(1000);
+  delay(500);
   // move forward for 1 strip
   linefollowUntil(1);
   delay(1000);
-  // turn right for rock
-  right90(83);
+  // turn left for rock
+  left90(80);
   backServo.write(0);
   // backServoMove(95, 0);
   delay(1000);
@@ -64,7 +65,7 @@ void grid1() {
   // drop rock
   backServoMove(90, 0);
   delay(1000);
-  // ============= first tree and rock =============
+  //============= first tree and rock =============
 
   // ============= second tree and rock =============
   // move back to intersection after rock drop
@@ -74,7 +75,7 @@ void grid1() {
   frontServoMove(0, 95);
   delay(500);
   // turn right
-  right90(80);
+  left90(80);
   delay(1000);
   // move forward away from tree to adjust for line
   backLinefollowEncoder(100);
@@ -92,7 +93,7 @@ void grid1() {
   linefollowUntil(1);
   delay(1000);
   // turn right for rock
-  right90(80);
+  left90(80);
   delay(1000);
   // move back 2 strips
   backwardWithEncoder(50, 80);
@@ -104,7 +105,7 @@ void grid1() {
   backServoMove(0, 90);
   delay(1000);
   // turn 180 after rock pick up
-  rightTurnEncoder(60, (240 * 2) + 5);
+  rightTurnEncoder(60, (240 * 2) + 10);
   delay(1000);
   // adjust to line for tree drop
   backLinefollowUntil(2);
@@ -132,7 +133,7 @@ void grid1() {
   frontServoMove(0, 95);
   delay(500);
   // turn right
-  right90(80);
+  left90(80);
   delay(1000);
   // move forward away from tree to adjust for line
   backLinefollowEncoder(100);
@@ -150,7 +151,7 @@ void grid1() {
   linefollowUntil(1);
   delay(1000);
   // turn right for rock
-  right90(80);
+  left90(80);
   delay(1000);
   // move back 1 strips
   backwardWithEncoder(50, 80);
@@ -162,7 +163,7 @@ void grid1() {
   backServoMove(0, 90);
   delay(1000);
   // turn 180 after rock pick up
-  rightTurnEncoder(60, (240 * 2) + 5);
+  rightTurnEncoder(60, (240 * 2) + 10);
   delay(1000);
   // adjust to line for tree drop
   backLinefollowUntil(2);
@@ -188,11 +189,10 @@ void grid1() {
   linefollowEncoder(10);
 
   delay(1000);
-  left90(80);
+  right90(80);
   delay(1000);
   linefollowEncoder(60);
   linefollowUntil(4);
   linefollowEncoder(250);
   delay(1000);
 }
-

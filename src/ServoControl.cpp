@@ -1,6 +1,9 @@
 #include <Arduino.h>
 #include "ServoControl.h"
 
+Servo frontServo;
+Servo backServo;
+
 void frontServoMove(int start, int end)
 {
   if (start > end)

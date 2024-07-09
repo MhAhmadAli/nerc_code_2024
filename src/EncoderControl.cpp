@@ -35,7 +35,7 @@ void backwardWithEncoder(int pwm, int ticks, int stopdelay)
 void left90(int pwm)
 {
   enc1_counter = 0;
-  while (enc1_counter < 240)
+  while (enc1_counter < 235)
   {
     left(pwm);
     interrupts();

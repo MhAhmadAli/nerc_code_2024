@@ -2,7 +2,7 @@
 #include "ServoControl.h"
 #include "LineFollow.h"
 #include "EncoderControl.h"
-#include "Blue/Grid2.h"
+#include "Blue/BlueGrid2.h"
 
 /*
  * Grid 2
@@ -10,7 +10,7 @@
  *  grid is 3x3 the points are (1,1), (2,2) and (3,3)
  */
 
-void grid2()
+void blue_grid2()
 {
   // ============== first tree and rock start ==============
   linefollowEncoder(80);

@@ -5,14 +5,12 @@
 #include "ServoControl.h"
 
 // Red Arena
-#include "Red/Grid1.h"
-#include "Red/Grid2.h"
+#include "Red/RedGrid1.h"
+#include "Red/RedGrid2.h"
 
 // Blue Arena
-#include "Blue/BackwardDiagonal.h"
-
-Servo frontServo;
-Servo backServo;
+#include "Blue/BlueGrid1.h"
+#include "Blue/BlueGrid2.h"
 
 #define ENC1 2
 #define ENC2 3
@@ -140,7 +138,7 @@ void red()
   // first right turn
   right90(80);
   delay(1000);
-  grid2();
+  red_grid1();
   // ============= third tree and rock =============
   while (1)
   {
@@ -156,7 +154,7 @@ void blue()
   // first right turn
   left90(80);
   delay(1000);
-  backwardDiagonal();
+  blue_grid1();
 
   // ============= third tree and rock =============
   while (1)

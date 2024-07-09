@@ -2,15 +2,16 @@
 #include "ServoControl.h"
 #include "LineFollow.h"
 #include "EncoderControl.h"
-#include "Blue/Grid1.h"
+#include "Red/RedGrid1.h"
 
-void grid1() {
+void red_grid1()
+{
   // move forward until 3 strips
   forwardWithEncoder(50, 80);
   linefollowUntil(3);
   delay(1000);
   // turn right after 3 strips
-  left90(80);
+  right90(80);
   delay(1000);
   // move back to center on line
   backwardWithEncoder(50, 150, 200);
@@ -32,7 +33,7 @@ void grid1() {
   linefollowUntil(1);
   delay(1000);
   // turn right for rock
-  left90(83);
+  right90(83);
   backServo.write(0);
   // backServoMove(95, 0);
   delay(1000);
@@ -74,7 +75,7 @@ void grid1() {
   frontServoMove(0, 95);
   delay(500);
   // turn right
-  left90(80);
+  right90(80);
   delay(1000);
   // move forward away from tree to adjust for line
   backLinefollowEncoder(100);
@@ -132,7 +133,7 @@ void grid1() {
   frontServoMove(0, 95);
   delay(500);
   // turn right
-  left90(80);
+  right90(80);
   delay(1000);
   // move forward away from tree to adjust for line
   backLinefollowEncoder(100);
@@ -150,7 +151,7 @@ void grid1() {
   linefollowUntil(1);
   delay(1000);
   // turn right for rock
-  left90(80);
+  right90(80);
   delay(1000);
   // move back 1 strips
   backwardWithEncoder(50, 80);
@@ -188,11 +189,10 @@ void grid1() {
   linefollowEncoder(10);
 
   delay(1000);
-  right90(80);
+  left90(80);
   delay(1000);
   linefollowEncoder(60);
   linefollowUntil(4);
   linefollowEncoder(250);
   delay(1000);
 }
-
