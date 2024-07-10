@@ -160,7 +160,7 @@ void blue()
   // first right turn
   left90(80);
   delay(1000);
-  blue_grid3();
+  blue_grid5();
 
   // ============= third tree and rock =============
   while (1)
