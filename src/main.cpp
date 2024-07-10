@@ -139,7 +139,7 @@ void red()
   // first right turn
   right90(80);
   delay(1000);
-  red_grid1();
+  red_grid3();
   // ============= third tree and rock =============
   while (1)
   {

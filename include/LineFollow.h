@@ -16,9 +16,15 @@ extern int S2[5];
 void linefollow(int speed = 50);
 void linefollowUntil(int strips);
 void linefollowEncoder(int ticks);
+void linefollowWithFive(int speed = 50);
+void linefollowFiveUntil(int strips);
+void linefollowFiveEncoder(int ticks);
 
 void backLinefollow(int speed = 50);
 void backLinefollowUntil(int strips);
 void backLinefollowEncoder(int ticks);
+void backLinefollowWithFive(int speed = 50);
+void backLinefollowFiveUntil(int strips);
+void backLinefollowFiveEncoder(int ticks);
 
 #endif // _LINEFOLLOW_H_
