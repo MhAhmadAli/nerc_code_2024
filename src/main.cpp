@@ -8,10 +8,15 @@
 #include "Red/RedGrid1.h"
 #include "Red/RedGrid2.h"
 #include "Red/RedGrid3.h"
+#include "Red/RedGrid4.h"
+#include "Red/RedGrid5.h"
 
 // Blue Arena
 #include "Blue/BlueGrid1.h"
 #include "Blue/BlueGrid2.h"
+#include "Blue/BlueGrid3.h"
+#include "Blue/BlueGrid4.h"
+#include "Blue/BlueGrid5.h"
 
 #define ENC1 2
 #define ENC2 3
@@ -139,7 +144,7 @@ void red()
   // first right turn
   right90(80);
   delay(1000);
-  red_grid3();
+  red_grid5();
   // ============= third tree and rock =============
   while (1)
   {
@@ -155,7 +160,7 @@ void blue()
   // first right turn
   left90(80);
   delay(1000);
-  blue_grid1();
+  blue_grid3();
 
   // ============= third tree and rock =============
   while (1)
