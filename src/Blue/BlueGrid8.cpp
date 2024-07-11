@@ -2,21 +2,21 @@
 #include "ServoControl.h"
 #include "LineFollow.h"
 #include "EncoderControl.h"
-#include "Red/RedGrid8.h"
+#include "Blue/BlueGrid8.h"
 
 /*
  * Grid 5 according to the Red Arena
  *
- *  grid is 3x3 the points are (1,1), (3,2) and (1,3)
+ *  grid is 3x3 the points are (1,1), (1,2) and (1,3)
  */
 
-void red_grid8()
+void blue_grid8()
 {
   // ============== first tree and rock start ==============
   linefollowEncoder(80);
   linefollowUntil(5);
   delay(1000);
-  right90(80);
+  left90(80);
   delay(1000);
   backLinefollowEncoder(80);
   frontServo.write(0); // front servo
@@ -26,7 +26,7 @@ void red_grid8()
   frontServoMove(0, 90); // tree pick up
   linefollowUntil(1);
   delay(1000);
-  right90(80);
+  left90(80);
   backServo.write(0); // back servo down for pick up
   delay(1000);
   backLinefollowEncoder(60);
@@ -53,13 +53,13 @@ void red_grid8()
   delay(500);
   linefollowUntil(1);
   delay(500);
-  right90(80);
+  left90(80);
   delay(500);
   backLinefollowFiveEncoder(80);
   delay(500);
   linefollowFiveUntil(2);
   delay(500);
-  right90(80);
+  left90(80);
   delay(500);
   linefollowFiveEncoder(150);
   backLinefollowFiveEncoder(280);
@@ -93,7 +93,7 @@ void red_grid8()
   delay(500);
   
   // turn right
-  right90(80);
+  left90(80);
   delay(500);
   frontServo.write(0);
 
@@ -108,7 +108,7 @@ void red_grid8()
   linefollowFiveUntil(2);
   // linefollowFiveEncoder(250);
   delay(500);
-  right90(80);
+  left90(80);
   delay(500);
   backLinefollowFiveEncoder(100);
   backServoMove(0,95);
@@ -131,7 +131,7 @@ void red_grid8()
   frontServoMove(90,0);
   backLinefollowUntil(1);
   delay(500);
-  right90(80);
+  left90(80);
   delay(500);
   /// waqas code
   frontServo.write(100);
