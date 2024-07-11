@@ -11,7 +11,6 @@
 #include "Red/RedGrid4.h"
 #include "Red/RedGrid5.h"
 #include "Red/RedGrid6.h"
-#include "Red/RedGrid7.h"
 
 // Blue Arena
 #include "Blue/BlueGrid1.h"
@@ -20,12 +19,16 @@
 #include "Blue/BlueGrid4.h"
 #include "Blue/BlueGrid5.h"
 #include "Blue/BlueGrid6.h"
-#include "Blue/BlueGrid7.h"
 
 #define ENC1 2
 #define ENC2 3
 
 #define ARENA 32
+
+#define DIP1 13
+#define DIP2 11
+#define DIP3 10
+#define DIP4 12
 
 void readSensorValsDebugAnalog(int *sensors)
 {
@@ -89,6 +92,17 @@ void stripCountDebug(int strips)
   }
 }
 
+void dipSwitchDebug()
+{
+  Serial.print(digitalRead(DIP1));
+  Serial.print(" ");
+  Serial.print(digitalRead(DIP2));
+  Serial.print(" ");
+  Serial.print(digitalRead(DIP3));
+  Serial.print(" ");
+  Serial.println(digitalRead(DIP4));
+}
+
 void forwardUntilMiddleSensors()
 {
   int mid1_val = analogRead(MID1) > 800 ? 1 : 0;
@@ -121,6 +135,11 @@ void configurePins()
   pinMode(MID1, INPUT);
   pinMode(MID2, INPUT);
 
+  pinMode(DIP1, INPUT_PULLUP);
+  pinMode(DIP2, INPUT_PULLUP);
+  pinMode(DIP3, INPUT_PULLUP);
+  pinMode(DIP4, INPUT_PULLUP);
+
   frontServo.attach(F_SERVO);
   backServo.attach(B_SERVO);
 
@@ -142,16 +161,38 @@ void configurePins()
 
 void red()
 {
+  int switch1 = digitalRead(DIP1);
+  int switch2 = digitalRead(DIP2);
+  int switch3 = digitalRead(DIP3);
+  int switch4 = digitalRead(DIP4);
+
   // start
   linefollowUntil(4);
   delay(1000);
   // first right turn
   right90(80);
   delay(1000);
-  red_grid5();
-    // rightTurnEncoder(170, (220 * 2), 150);
-    // linefollowFiveUntil(2);
-    
+
+  if (!switch1 && !switch2 && !switch3 && !switch4)
+  { // 0001
+    red_grid1();
+  }
+  else if (switch1 && !switch2 && !switch3 && !switch4)
+  { // 0010
+    red_grid2();
+  }
+  else if (switch1 && switch2 && !switch3 && !switch4)
+  { // 0011
+    red_grid3();
+  }
+  else if (!switch1 && !switch2 && switch3 && !switch4)
+  { // 0100
+    red_grid4();
+  }
+  else if (switch1 && !switch2 && switch3 && !switch4)
+  { // 0101
+    red_grid5();
+  }
 
   // ============= third tree and rock =============
   while (1)
@@ -162,13 +203,38 @@ void red()
 
 void blue()
 {
+  int switch1 = digitalRead(DIP1);
+  int switch2 = digitalRead(DIP2);
+  int switch3 = digitalRead(DIP3);
+  int switch4 = digitalRead(DIP4);
+
   // start
   linefollowUntil(4);
   delay(1000);
   // first right turn
   left90(80);
   delay(1000);
-  blue_grid5();
+
+  if (!switch1 && !switch2 && !switch3 && !switch4)
+  { // 0001
+    blue_grid1();
+  }
+  else if (switch1 && !switch2 && !switch3 && !switch4)
+  { // 0010
+    blue_grid2();
+  }
+  else if (switch1 && switch2 && !switch3 && !switch4)
+  { // 0011
+    blue_grid3();
+  }
+  else if (!switch1 && !switch2 && switch3 && !switch4)
+  { // 0100
+    blue_grid4();
+  }
+  else if (switch1 && !switch2 && switch3 && !switch4)
+  { // 0101
+    blue_grid5();
+  }
 
   // ============= third tree and rock =============
   while (1)

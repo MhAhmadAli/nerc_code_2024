@@ -13,116 +13,119 @@
 void blue_grid2()
 {
   // ============== first tree and rock start ==============
-  linefollowEncoder(80);
-  linefollowUntil(5);
-  delay(1000);
+  linefollowFiveEncoder(80);
+  linefollowFiveUntil(5);
+  delay(500);
   left90(80);
-  delay(1000);
-  backLinefollowEncoder(80);
+  delay(500);
+  backLinefollowFiveEncoder(80);
   frontServo.write(0); // front servo
-  delay(1000);
-  linefollowEncoder(150);
-  delay(1000);
+  delay(500);
+  linefollowFiveEncoder(150);
+  // delay(500);
   frontServoMove(0, 90); // tree pick up
   linefollowUntil(1);
-  delay(1000);
+  delay(500);
   left90(80);
   backServo.write(0); // back servo down for pick up
-  delay(1000);
-  backLinefollowEncoder(60);
-  backLinefollowUntil(1);
+  delay(500);
+  backLinefollowFiveEncoder(60);
+  backLinefollowFiveUntil(1);
   delay(200);
   backLinefollowEncoder(100);
   backServoMove(0, 90);                // rock pick up
-  rightTurnEncoder(80, (240 * 2) + 5); // 180 turn
-  delay(1000);
-  backLinefollowUntil(2);
-  delay(1000);
+  rightTurnEncoder(170, (220 * 2) , 150); // 180 turn
+  // delay(500);
+  backLinefollowFiveEncoder(350);
+  backLinefollowUntil(1);
+  delay(500);
   linefollowEncoder(410);
-  delay(1000);
+  // delay(500);
   frontServoMove(90, 0); // rock drop
   backLinefollowUntil(1);
-  delay(1000);
+  delay(500);
   backLinefollowEncoder(80);
   backServoMove(90, 0); // tree drop
-  delay(1000);
+  // delay(500);
   // ============== first tree and rock end ==============
 
   // ============== second tree and rock start ==============
   frontServo.write(90);
-  delay(1000);
+  delay(500);
   linefollowUntil(1);
-  delay(1000);
+  delay(500);
   left90(80);
-  delay(1000);
-  backLinefollowEncoder(80);
-  delay(1000);
-  linefollowUntil(2);
-  delay(1000);
+  delay(500);
+  backLinefollowFiveEncoder(80);
+  delay(500);
+  linefollowFiveUntil(2);
+  delay(500);
   left90(80);
-  delay(1000);
-  linefollowEncoder(150);
-  backLinefollowEncoder(280);
+  delay(500);
+  linefollowFiveEncoder(150);
+  backLinefollowFiveEncoder(280);
   backServoMove(0, 90); // rock pickup
   frontServo.write(0);
-  delay(1000);
+  delay(500);
   linefollowUntil(2);
-  delay(1000);
+  delay(500);
   linefollowEncoder(100);
   frontServoMove(0, 90); // tree pickup
-  rightTurnEncoder(80, (240 * 2) + 5);
-  delay(1000);
-  linefollowUntil(2);
-  delay(1000);
-  backLinefollowEncoder(410);
-  delay(1000);
+  rightTurnEncoder(170, (220 * 2) , 150);
+  // delay(500);
+  linefollowFiveEncoder(350);
+  linefollowUntil(1);
+  delay(500);
+  backLinefollowEncoder(420);
+  // delay(500);
   backServoMove(90, 0); // rock drop
-  delay(1000);
+  // delay(500);
   linefollowUntil(2);
-  delay(1000);
+  delay(500);
   linefollowEncoder(80);
   frontServoMove(90, 0); // tree drop
   // ============== second tree and rock end ==============
 
   // ============== third tree and rock start ==============
   backLinefollowUntil(1);
-  delay(1000);
+  delay(500);
   left90(80);
-  delay(1000);
-  backLinefollowEncoder(80);
-  linefollowUntil(2);
-  delay(1000);
+  delay(500);
+  backLinefollowFiveEncoder(80);
+  linefollowFiveUntil(2);
+  delay(500);
   left90(80);
-  delay(1000);
-  linefollowEncoder(150);
-  backLinefollowEncoder(280);
+  delay(500);
+  linefollowFiveEncoder(150);
+  backLinefollowFiveEncoder(280);
   backServoMove(0, 90); // rock pickup
   frontServo.write(0);
-  delay(1000);
+  delay(500);
   linefollowUntil(3);
-  delay(1000);
+  delay(500);
   linefollowEncoder(100);
   frontServoMove(0, 90); // tree pickup
-  rightTurnEncoder(80, (240 * 2) + 10);
-  delay(1000);
-  linefollowUntil(3);
-  delay(1000);
-  backLinefollowEncoder(700);
-  delay(1000);
+  rightTurnEncoder(170, (220 * 2) , 150);
+  // delay(500);
+  linefollowFiveEncoder(350);
+  linefollowUntil(1);
+  delay(500);
+  backLinefollowEncoder(420);
+  // delay(500);
   backServoMove(90, 0); // rock drop
-  delay(1000);
+  // delay(500);
   linefollowUntil(3);
-  delay(1000);
+  delay(500);
   linefollowEncoder(90);
   frontServoMove(90, 0); // tree drop
   // ============== third tree and rock end ==============
 
   backLinefollowUntil(1);
-  delay(1000);
+  delay(500);
   left90(80);
-  delay(1000);
+  delay(500);
   linefollowEncoder(80);
-  delay(1000);
+  delay(500);
   backLinefollowUntil(5);
-  backLinefollowEncoder(200);
+  backLinefollowEncoder(300);
 }

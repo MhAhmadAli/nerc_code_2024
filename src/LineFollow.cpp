@@ -334,7 +334,7 @@ void backLinefollowFiveEncoder(int ticks)
   enc1_counter = 0;
   while (enc1_counter < ticks)
   {
-    backLinefollowWithFive(30);
+    backLinefollowWithFive(50);
     interrupts();
   }
   halt();
