@@ -196,6 +196,18 @@ void red()
   { // 0101
     red_grid5();
   }
+  else if (!switch1 && switch2 && switch3 && !switch4) 
+  { // 0110
+    red_grid6();
+  }
+  else if (switch1 && switch2 && switch3 && !switch4)
+  { // 0111
+    // red_grid7();
+  }
+  else if (!switch1 && !switch2 && !switch3 && switch4)
+  { // 1000
+    red_grid8();
+  }
 
   // ============= third tree and rock =============
   while (1)
