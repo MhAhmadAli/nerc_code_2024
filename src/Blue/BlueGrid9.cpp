@@ -2,16 +2,16 @@
 #include "ServoControl.h"
 #include "LineFollow.h"
 #include "EncoderControl.h"
-#include "Red/RedGrid9.h"
+#include "Blue/BlueGrid9.h"
 
-void red_grid9()
+void blue_grid9()
 {
  // move forward until 3 strips
   forwardWithEncoder(50, 80);
   linefollowUntil(3);
   delay(500);
-  // turn right after 3 strips
-  right90(80);
+  // turn left after 3 strips
+  left90(80);
   delay(500);
   // move back to center on line
   backwardWithEncoder(50, 150);
@@ -31,7 +31,7 @@ void red_grid9()
   linefollowUntil(1);
   delay(500);
   // turn right for rock
-  right90(80);
+  left90(80);
   backServo.write(0);
   // backServoMove(95, 0);
   delay(500);
@@ -73,7 +73,7 @@ void red_grid9()
   frontServo.write(95);
   delay(500);
   // turn right
-  right90(80);
+  left90(80);
   delay(500);
   // move forward away from tree to adjust for line
   backLinefollowFiveEncoder(100);
@@ -91,7 +91,7 @@ void red_grid9()
   linefollowUntil(1);
   delay(500);
   // turn right for rock
-  right90(80);
+  left90(80);
   delay(500);
   // move back 2 strips
   backLinefollowFiveEncoder(80);
@@ -124,18 +124,17 @@ void red_grid9()
   // delay(500);
   // ============= second tree and rock =============
 
-
   // ============= third tree and rock start ===========
   linefollowUntil(1);
   delay(500);
-  right90(80);
+  left90(80);
   delay(500);
   frontServo.write(90);
   delay(500);
   backLinefollowFiveEncoder(150);
   linefollowFiveUntil(2);
   delay(500);
-  right90(80);
+  left90(80);
   delay(500);
   linefollowFiveEncoder(100);
   backLinefollowFiveEncoder(230);
@@ -163,11 +162,13 @@ void red_grid9()
 
   backLinefollowUntil(1);
   delay(500);
-  right90(80);
+  left90(80);
   delay(500);
   linefollowEncoder(75);
   delay(500);
   backLinefollowUntil(5);
   backLinefollowEncoder(200);
+   
+
    
 }
