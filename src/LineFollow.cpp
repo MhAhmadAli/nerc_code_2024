@@ -251,7 +251,7 @@ void backLinefollowEncoder(int ticks)
   halt();
 }
 
-void backLinefollowWithFive(int speed = 50)
+void backLinefollowWithFive(int speed)
 {
   // white 1
   // black 0
