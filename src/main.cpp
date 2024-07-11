@@ -12,6 +12,7 @@
 #include "Red/RedGrid5.h"
 #include "Red/RedGrid6.h"
 #include "Red/RedGrid8.h"
+#include "Red/RedGrid9.h"
 
 // Blue Arena
 #include "Blue/BlueGrid1.h"
@@ -22,6 +23,8 @@
 #include "Blue/BlueGrid6.h"
 #include "Blue/BlueGrid7.h"
 #include "Blue/BlueGrid8.h"
+#include "Blue/BlueGrid9.h"
+#include "Blue/BlueGrid10.h"
 
 #define ENC1 2
 #define ENC2 3
@@ -208,6 +211,10 @@ void red()
   { // 1000
     red_grid8();
   }
+  else if (switch1 && !switch2 && !switch3 && switch4)
+  { // 1001
+    red_grid9();
+  }
 
   // ============= third tree and rock =============
   while (1)
@@ -258,12 +265,24 @@ void blue()
   { // 0111
     blue_grid7();
   }
+  else if (!switch1 && !switch2 && !switch3 && switch4)
+  { // 1000
+    blue_grid8();
+  }
+  else if (switch1 && !switch2 && !switch3 && switch4)
+  { // 1001
+    // blue_grid9();
+  }
+  else if (switch1 && switch2 && !switch3 && switch4)
+  { // 1010
+    blue_grid10();
+  }
 
   // ============= third tree and rock =============
-//   while (1)
-//   {
-//     Serial.println("END");
-//   }
+  while (1)
+  {
+    Serial.println("END");
+  }
 }
 
 void setup()
