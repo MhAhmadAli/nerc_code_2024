@@ -11,7 +11,7 @@ void frontServoMove(int start, int end)
     for (int i = start; i > end; i--)
     {
       frontServo.write(i);
-      delay(30);
+      delay(10);
     }
   }
   else
@@ -19,7 +19,7 @@ void frontServoMove(int start, int end)
     for (int i = start; i < end; i++)
     {
       frontServo.write(i);
-      delay(30);
+      delay(10);
     }
   }
 }
@@ -31,7 +31,7 @@ void backServoMove(int start, int end)
     for (int i = start; i > end; i--)
     {
       backServo.write(i);
-      delay(30);
+      delay(10);
     }
   }
   else
@@ -39,7 +39,7 @@ void backServoMove(int start, int end)
     for (int i = start; i < end; i++)
     {
       backServo.write(i);
-      delay(30);
+      delay(10);
     }
   }
 }

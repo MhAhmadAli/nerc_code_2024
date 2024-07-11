@@ -44,10 +44,10 @@ void right(int pwm1, int pwm2)
   if (pwm1 == 255)
     pwm2 = 255;
 
-  analogWrite(L1, 0);
-  analogWrite(L2, pwm1);
   analogWrite(R1, pwm2);
   analogWrite(R2, 0);
+  analogWrite(L1, 0);
+  analogWrite(L2, pwm1);
 }
 
 void left(int pwm1, int pwm2)

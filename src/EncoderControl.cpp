@@ -66,12 +66,17 @@ void right90(int pwm1, int pwm2)
   halt();
 }
 
-void rightTurnEncoder(int pwm, int ticks)
+void rightTurnEncoder(int pwm, int ticks, int pwm2)
 {
+  if (pwm2 == 0)
+  {
+    pwm2 = pwm;
+  }
+
   enc1_counter = 0;
   while (enc1_counter < ticks)
   {
-    right(pwm);
+    right(pwm, pwm2);
     interrupts();
   }
   halt();
