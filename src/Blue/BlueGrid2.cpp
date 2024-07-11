@@ -31,7 +31,7 @@ void blue_grid2()
   delay(500);
   backLinefollowFiveEncoder(60);
   backLinefollowFiveUntil(1);
-  delay(200);
+  delay(500);
   backLinefollowEncoder(100);
   backServoMove(0, 90);                // rock pick up
   rightTurnEncoder(170, (220 * 2) , 150); // 180 turn
