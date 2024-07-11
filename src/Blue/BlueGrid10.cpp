@@ -44,7 +44,7 @@ void blue_grid10() {
   right90(80);
   delay(500);
   linefollowFiveEncoder(80);
-  backLinefollowFiveEncoder(200);
+  backLinefollowFiveEncoder(210);
   backServoMove(90, 0); // tree drop
   // =================== first tree and rock end ===================
 
@@ -62,5 +62,63 @@ void blue_grid10() {
   delay(500);
   backLinefollowFiveEncoder(80);
   linefollowFiveUntil(2);
-  
+  delay(500);
+  leftTurnEncoder(80, 240);
+  delay(500);
+  backLinefollowFiveEncoder(80);
+  backServoMove(0, 90); // tree pick up
+  frontServo.write(0);
+  delay(500);
+  linefollowFiveEncoder(200);
+  frontServoMove(0, 90); // rock pick up
+  rightTurnEncoder(170, (220 * 2), 150);
+  linefollowFiveEncoder(350);
+  linefollowFiveUntil(1);
+  delay(500);
+  backLinefollowFiveEncoder(410);
+  backServoMove(90, 0); // tree drop
+  linefollowUntil(1);
+  delay(500);
+  linefollowEncoder(100);
+  frontServoMove(90, 0); // rock drop
+  // =================== second tree and rock end ===================
+
+  // =================== third tree and rock start ===================
+  backLinefollowUntil(1);
+  delay(500);
+  leftTurnEncoder(80, 240);
+  delay(500);
+  backLinefollowFiveEncoder(100);
+  linefollowFiveUntil(2);
+  delay(500);
+  leftTurnEncoder(80, 240);
+  delay(500);
+  backLinefollowFiveEncoder(80);
+  backServoMove(0, 90); // tree pick up
+  frontServo.write(0);
+  delay(500);
+  linefollowFiveUntil(2);
+  delay(500);
+  linefollowEncoder(80);
+  frontServoMove(0, 90); // rock pick up
+  rightTurnEncoder(170, (220 * 2), 150);
+  linefollowFiveEncoder(350);
+  linefollowFiveUntil(1);
+  delay(500);
+  backLinefollowFiveEncoder(410);
+  backServoMove(90, 0); // tree drop
+  linefollowUntil(2);
+  delay(500);
+  linefollowEncoder(80);
+  frontServoMove(90, 0); // rock drop
+  // =================== third tree and rock end ===================
+
+  backLinefollowFiveUntil(1);
+  delay(500);
+  leftTurnEncoder(80, 240);
+  delay(500);
+  backLinefollowFiveEncoder(100);
+  backLinefollowFiveUntil(4);
+  backLinefollowFiveEncoder(300);
+
 }

@@ -273,7 +273,7 @@ void blue()
   { // 1001
     // blue_grid9();
   }
-  else if (switch1 && switch2 && !switch3 && switch4)
+  else if (!switch1 && switch2 && !switch3 && switch4)
   { // 1010
     blue_grid10();
   }
