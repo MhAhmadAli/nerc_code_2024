@@ -2,7 +2,7 @@
 #include "ServoControl.h"
 #include "LineFollow.h"
 #include "EncoderControl.h"
-#include "Red/RedGrid6.h"
+#include "Blue/BlueGrid6.h"
 
 /*
  * Grid 5 according to the Red Arena
@@ -10,15 +10,15 @@
  *  grid is 3x3 the points are (1,1), (1,2) and (2,3)
  */
 
-void red_grid6()
+void blue_grid6()
 {
     // ============= first tree and rock start =============
   // move forward until 4 strips
   forwardWithEncoder(50, 80);
   linefollowFiveUntil(4);
   delay(1000);
-  // turn right after 4 strips
-  right90(80);
+  // turn left after 4 strips
+  left90(80);
   delay(1000);
   // move back to center on line
   backwardWithEncoder(50, 110);
@@ -36,7 +36,7 @@ void red_grid6()
   linefollowUntil(1);
   delay(1000);
   // turn right for rock
-  right90(80);
+  left90(80);
   backServo.write(0);
   delay(1000);
   // move back 2 strips
@@ -76,7 +76,7 @@ void red_grid6()
   frontServoMove(0, 95);
   delay(500);
   // turn right
-  right90(80);
+  left90(80);
   delay(1000);
   // move forward away from tree to adjust for line
   backLinefollowEncoder(100);
@@ -94,11 +94,11 @@ void red_grid6()
   linefollowUntil(1);
   delay(1000);
   // turn right for rock
-  right90(80);
+  left90(80);
   delay(1000);
   // move back 2 strips
   backwardWithEncoder(50, 80);
-  backLinefollowUntil(2);
+  backLinefollowUntil(1);
   delay(1000);
   // move to pick up rock
   backLinefollowEncoder(100);
@@ -108,7 +108,7 @@ void red_grid6()
   // turn 180 after rock pick up
   rightTurnEncoder(170, (220 * 2) , 150);
   // adjust to line for tree drop
-  backLinefollowUntil(2);
+  backLinefollowUntil(1);
   delay(500);
   linefollowEncoder(70);
   delay(1000);
@@ -116,7 +116,7 @@ void red_grid6()
   frontServoMove(90, 0);
   delay(1000);
   // move back 2 strip to drop rock at original tree position
-  backLinefollowUntil(2);
+  backLinefollowUntil(1);
   delay(1000);
   backLinefollowEncoder(90);
   delay(1000);
@@ -128,12 +128,12 @@ void red_grid6()
 // ============= third tree and rock start ===========
   linefollowUntil(1);
   delay(1000);
-  right90(80);
+  left90(80);
   delay(1000);
   backLinefollowEncoder(100);
   linefollowUntil(2);
   delay(1000);
-  right90(80);
+  left90(80);
   delay(1000);
   backLinefollowEncoder(100);
   linefollowEncoder(440);
@@ -144,7 +144,7 @@ void red_grid6()
   backServoMove(0, 90); // tree pickup
   rightTurnEncoder(170, (170 * 2) , 150);
   // delay(1000);
-  backLinefollowFiveUntil(2);
+  backLinefollowFiveUntil(1);
   delay(1000);
   linefollowEncoder(210);
   delay(1000);
@@ -158,7 +158,7 @@ void red_grid6()
 
   linefollowUntil(2);
   delay(1000);
-  right90(80);
+  left90(80);
   delay(1000);
   linefollowEncoder(75);
   delay(1000);
