@@ -11,6 +11,7 @@
 #include "Red/RedGrid4.h"
 #include "Red/RedGrid5.h"
 #include "Red/RedGrid6.h"
+#include "Red/RedGrid8.h"
 
 // Blue Arena
 #include "Blue/BlueGrid1.h"
@@ -19,6 +20,7 @@
 #include "Blue/BlueGrid4.h"
 #include "Blue/BlueGrid5.h"
 #include "Blue/BlueGrid6.h"
+#include "Blue/BlueGrid8.h"
 
 #define ENC1 2
 #define ENC2 3
@@ -172,31 +174,28 @@ void red()
   // first right turn
   right90(80);
   delay(1000);
+  red_grid8();
 
-  if (!switch1 && !switch2 && !switch3 && !switch4)
-  { // 0001
-    red_grid1();
-  }
-  else if (switch1 && !switch2 && !switch3 && !switch4)
-  { // 0010
-    red_grid2();
-  }
-  else if (switch1 && switch2 && !switch3 && !switch4)
-  { // 0011
-    red_grid3();
-  }
-  else if (!switch1 && !switch2 && switch3 && !switch4)
-  { // 0100
-    red_grid4();
-  }
-  else if (switch1 && !switch2 && switch3 && !switch4)
-  { // 0101
-    red_grid5();
-  }
-  else if (!switch1 && switch2 && switch3 && !switch4)
-  { // 0110
-    red_grid6();
-  }
+  // if (!switch1 && !switch2 && !switch3 && !switch4)
+  // { // 0001
+  //   red_grid1();
+  // }
+  // else if (switch1 && !switch2 && !switch3 && !switch4)
+  // { // 0010
+  //   red_grid2();
+  // }
+  // else if (switch1 && switch2 && !switch3 && !switch4)
+  // { // 0011
+  //   red_grid3();
+  // }
+  // else if (!switch1 && !switch2 && switch3 && !switch4)
+  // { // 0100
+  //   red_grid4();
+  // }
+  // else if (switch1 && !switch2 && switch3 && !switch4)
+  // { // 0101
+  //   red_grid5();
+  // }
 
   // ============= third tree and rock =============
   while (1)
@@ -219,36 +218,32 @@ void blue()
   left90(80);
   delay(1000);
 
-  if (!switch1 && !switch2 && !switch3 && !switch4)
-  { // 0001
-    blue_grid1();
-  }
-  else if (switch1 && !switch2 && !switch3 && !switch4)
-  { // 0010
-    blue_grid2();
-  }
-  else if (switch1 && switch2 && !switch3 && !switch4)
-  { // 0011
-    blue_grid3();
-  }
-  else if (!switch1 && !switch2 && switch3 && !switch4)
-  { // 0100
-    blue_grid4();
-  }
-  else if (switch1 && !switch2 && switch3 && !switch4)
-  { // 0101
-    blue_grid5();
-  }
-  else if (!switch1 && switch2 && switch3 && !switch4)
-  { // 0110
-    blue_grid6();
-  }
+  // if (!switch1 && !switch2 && !switch3 && !switch4)
+  // { // 0001
+  //   blue_grid1();
+  // }
+  // else if (switch1 && !switch2 && !switch3 && !switch4)
+  // { // 0010
+  //   blue_grid2();
+  // }
+  // else if (switch1 && switch2 && !switch3 && !switch4)
+  // { // 0011
+  //   blue_grid3();
+  // }
+  // else if (!switch1 && !switch2 && switch3 && !switch4)
+  // { // 0100
+  //   blue_grid4();
+  // }
+  // else if (switch1 && !switch2 && switch3 && !switch4)
+  // { // 0101
+  //   blue_grid5();
+  // }
 
   // ============= third tree and rock =============
-  while (1)
-  {
-    Serial.println("END");
-  }
+//   while (1)
+//   {
+//     Serial.println("END");
+//   }
 }
 
 void setup()
