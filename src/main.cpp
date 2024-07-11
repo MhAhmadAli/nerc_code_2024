@@ -19,6 +19,7 @@
 #include "Blue/BlueGrid4.h"
 #include "Blue/BlueGrid5.h"
 #include "Blue/BlueGrid6.h"
+#include "Blue/BlueGrid7.h"
 
 #define ENC1 2
 #define ENC2 3
@@ -242,6 +243,10 @@ void blue()
   else if (!switch1 && switch2 && switch3 && !switch4)
   { // 0110
     blue_grid6();
+  }
+  else if (switch1 && switch2 && switch3 && !switch4)
+  { // 0111
+    blue_grid7();
   }
 
   // ============= third tree and rock =============
