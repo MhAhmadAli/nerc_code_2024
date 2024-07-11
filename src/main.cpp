@@ -11,8 +11,10 @@
 #include "Red/RedGrid4.h"
 #include "Red/RedGrid5.h"
 #include "Red/RedGrid6.h"
+#include "Red/RedGrid7.h"
 #include "Red/RedGrid8.h"
 #include "Red/RedGrid9.h"
+#include "Red/RedGrid10.h"
 
 // Blue Arena
 #include "Blue/BlueGrid1.h"
@@ -205,7 +207,7 @@ void red()
   }
   else if (switch1 && switch2 && switch3 && !switch4)
   { // 0111
-    // red_grid7();
+    red_grid7();
   }
   else if (!switch1 && !switch2 && !switch3 && switch4)
   { // 1000
@@ -214,6 +216,11 @@ void red()
   else if (switch1 && !switch2 && !switch3 && switch4)
   { // 1001
     red_grid9();
+  }
+  else if (!switch1 && switch2 && !switch3 && switch4)
+  {
+    //1010 
+    red_grid10();
   }
 
   // ============= third tree and rock =============
@@ -271,7 +278,7 @@ void blue()
   }
   else if (switch1 && !switch2 && !switch3 && switch4)
   { // 1001
-    // blue_grid9();
+    blue_grid9();
   }
   else if (!switch1 && switch2 && !switch3 && switch4)
   { // 1010
