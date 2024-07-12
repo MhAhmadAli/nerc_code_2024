@@ -15,42 +15,49 @@ void blue_grid8()
   // ============== first tree and rock start ==============
   linefollowEncoder(80);
   linefollowUntil(5);
-  delay(1000);
+  delay(500);
   left90(80);
-  delay(1000);
+  delay(500);
   backLinefollowEncoder(80);
   frontServo.write(0); // front servo
-  delay(1000);
-  linefollowEncoder(150);
-  delay(1000);
+  delay(500);
+  linefollowEncoder(180);
+  delay(500);
   frontServoMove(0, 90); // tree pick up
   linefollowUntil(1);
-  delay(1000);
+  delay(500);
   left90(80);
   backServo.write(0); // back servo down for pick up
-  delay(1000);
+  delay(500);
   backLinefollowEncoder(60);
   backLinefollowUntil(1);
   delay(200);
   backLinefollowEncoder(100);
-  backServoMove(0, 90);                // rock pick up
-  rightTurnEncoder(170, (220 * 2) ,150); // 180 turn
-  delay(1000);
-  backLinefollowUntil(2);
-  delay(1000);
-  linefollowEncoder(410);
-  delay(1000);
+  backServoMove(0, 90); // rock pick up
+  delay(500);
+  rightTurnEncoder(170, (220 * 2), 150); // 180 turn
+  // delay(500);
+  backLinefollowFiveEncoder(350);
+  backLinefollowFiveUntil(1);
+  delay(500);
+  // linefollowEncoder(410);
+  linefollowUntil(2);
+  linefollowEncoder(105);
+  delay(500);
   frontServoMove(90, 0); // rock drop
+  delay(200);
+  backwardWithEncoder(50, 80);
   backLinefollowUntil(1);
-  delay(1000);
+  delay(500);
   backLinefollowEncoder(80);
   backServoMove(90, 0); // tree drop
-  delay(1000);
+  // delay(200);
   // ============== first tree and rock end ==============
 
   // ============== second tree and rock start ==============
   frontServo.write(90);
   delay(500);
+  forwardWithEncoder(50, 80);
   linefollowUntil(1);
   delay(500);
   left90(80);
@@ -70,28 +77,34 @@ void blue_grid8()
   delay(500);
   linefollowEncoder(100);
   frontServoMove(0, 90); // tree pickup
-  rightTurnEncoder(170, (220 * 2) , 150);;
+  delay(500);
+  rightTurnEncoder(170, (220 * 2), 150);
   // delay(500);
   linefollowFiveEncoder(350);
   linefollowFiveUntil(1);
-  // delay(500);
-  backLinefollowEncoder(410);
   delay(500);
-  backServoMove(90, 0); // rock drop
+  // backLinefollowEncoder(410);
+  backLinefollowUntil(2);
+  backLinefollowEncoder(105);
   // delay(500);
+  backServoMove(90, 0); // rock drop
+  delay(200);
+  forwardWithEncoder(50, 80);
   linefollowUntil(3);
   delay(500);
   linefollowEncoder(80);
   frontServoMove(90, 0); // tree drop
+  delay(200);
   // ============== second tree and rock end ==============
 
   // ============= third tree and rock =============
   // move back to intersection after rock drop
+  backwardWithEncoder(50, 80);
   backLinefollowUntil(1);
   delay(500);
   // move front servo up for the turn
   delay(500);
-  
+
   // turn right
   left90(80);
   delay(500);
@@ -111,33 +124,40 @@ void blue_grid8()
   left90(80);
   delay(500);
   backLinefollowFiveEncoder(100);
-  backServoMove(0,95);
+  backServoMove(0, 95);
   // move front servo up after tree pickup
   linefollowUntil(1);
   linefollowEncoder(100);
   frontServoMove(0, 90);
-  // delay(500);
+  delay(500);
   // move forward to intersection
-  rightTurnEncoder(170,(220 * 2), 150);
+  rightTurnEncoder(170, (220 * 2), 150);
   linefollowFiveEncoder(350);
   linefollowFiveUntil(1);
   delay(500);
-  backLinefollowEncoder(420);
+  // backLinefollowEncoder(420);
+  backLinefollowUntil(2);
+  backLinefollowEncoder(105);
   // turn right for rock
-  backServoMove(95,0);
+  backServoMove(95, 0);
+  delay(200);
+  forwardWithEncoder(50, 80);
   linefollowUntil(1);
   delay(500);
-  linefollowEncoder(80);
-  frontServoMove(90,0);
+  linefollowEncoder(100);
+  frontServoMove(90, 0);
+  delay(200);
+  backwardWithEncoder(50, 80);
   backLinefollowUntil(1);
   delay(500);
   left90(80);
   delay(500);
   /// waqas code
   frontServo.write(100);
-  
+
   delay(500);
   linefollowEncoder(100);
+  delay(200);
   backLinefollowUntil(5);
   backLinefollowEncoder(300);
   delay(500);

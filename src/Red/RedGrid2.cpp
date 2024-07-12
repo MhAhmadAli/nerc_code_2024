@@ -34,15 +34,18 @@ void red_grid2()
   backLinefollowUntil(1);
   delay(200);
   backLinefollowEncoder(100);
-  backServoMove(0, 90);                // rock pick up
-  rightTurnEncoder(170, (220 * 2) , 150); // 180 turn
+  backServoMove(0, 90); // rock pick up
+  delay(500);
+  rightTurnEncoder(170, (220 * 2), 150); // 180 turn
   // delay(500);
   backLinefollowFiveEncoder(350);
   backLinefollowUntil(1);
   delay(500);
-  linefollowEncoder(410);
+  linefollowUntil(2);
+  linefollowEncoder(105);
   // delay(500);
   frontServoMove(90, 0); // rock drop
+  backwardWithEncoder(50, 80);
   backLinefollowUntil(1);
   delay(500);
   backLinefollowEncoder(80);
@@ -53,6 +56,7 @@ void red_grid2()
   // ============== second tree and rock start ==============
   frontServo.write(90);
   delay(500);
+  forwardWithEncoder(50, 80);
   linefollowUntil(1);
   delay(500);
   right90(80);
@@ -64,6 +68,7 @@ void red_grid2()
   right90(80);
   delay(500);
   linefollowFiveEncoder(150);
+  delay(200);
   backLinefollowFiveEncoder(280);
   backServoMove(0, 90); // rock pickup
   frontServo.write(0);
@@ -72,15 +77,19 @@ void red_grid2()
   delay(500);
   linefollowEncoder(100);
   frontServoMove(0, 90); // tree pickup
-  rightTurnEncoder(170, (220 * 2) , 150);;
+  delay(500);
+  rightTurnEncoder(170, (220 * 2), 150);
   // delay(500);
   linefollowFiveEncoder(350);
   linefollowFiveUntil(1);
-  // delay(500);
-  backLinefollowEncoder(410);
+  delay(500);
+  // backLinefollowEncoder(410);
+  backLinefollowUntil(2);
+  backLinefollowEncoder(105);
   delay(500);
   backServoMove(90, 0); // rock drop
   // delay(500);
+  forwardWithEncoder(50, 80);
   linefollowUntil(2);
   delay(500);
   linefollowEncoder(80);
@@ -88,16 +97,19 @@ void red_grid2()
   // ============== second tree and rock end ==============
 
   // ============== third tree and rock start ==============
+  backwardWithEncoder(50, 80);
   backLinefollowUntil(1);
   delay(500);
   right90(80);
   delay(500);
   backLinefollowFiveEncoder(80);
+  delay(200);
   linefollowFiveUntil(2);
   delay(500);
   right90(80);
   delay(500);
   linefollowFiveEncoder(150);
+  delay(200);
   backLinefollowFiveEncoder(280);
   backServoMove(0, 90); // rock pickup
   frontServo.write(0);
@@ -106,19 +118,24 @@ void red_grid2()
   delay(500);
   linefollowEncoder(100);
   frontServoMove(0, 90); // tree pickup
-  rightTurnEncoder(170, (220 * 2) , 150);;
+  delay(500);
+  rightTurnEncoder(170, (220 * 2), 150);
   // delay(500);
   linefollowFiveEncoder(350);
   linefollowFiveUntil(1);
   delay(500);
-  backLinefollowEncoder(420);
+  // backLinefollowEncoder(420);
+  backLinefollowUntil(2);
+  backLinefollowEncoder(105);
   delay(500);
   backServoMove(90, 0); // rock drop
   delay(500);
+  forwardWithEncoder(50, 80);
   linefollowUntil(3);
   delay(500);
   linefollowEncoder(90);
   frontServoMove(90, 0); // tree drop
+  backwardWithEncoder(50, 80);
   // ============== third tree and rock end ==============
 
   backLinefollowUntil(1);
