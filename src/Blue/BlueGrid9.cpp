@@ -14,7 +14,7 @@ void blue_grid9()
   left90(80);
   delay(500);
   // move back to center on line
-  backwardWithEncoder(50, 150);
+  backLinefollowFiveEncoder(110);
   delay(500);
   // move servo down for pickup
   frontServo.write(0);
@@ -22,7 +22,7 @@ void blue_grid9()
 
   // ============= first tree and rock =============
   // move until first tree
-  linefollowEncoder(280);
+  linefollowFiveEncoder(280);
   // delay(500);
   // move servo up after pickup
   frontServoMove(0, 90);
@@ -139,11 +139,13 @@ void blue_grid9()
   frontServo.write(90);
   delay(500);
   backLinefollowFiveEncoder(150);
+  delay(200);
   linefollowFiveUntil(2);
   delay(500);
   left90(80);
   delay(500);
   linefollowFiveEncoder(100);
+  delay(200);
   backLinefollowFiveEncoder(230);
   backServoMove(0, 90); // rock pickup
   frontServo.write(0);
@@ -173,12 +175,12 @@ void blue_grid9()
   // ================ third tree and rock end =============
 
   backwardWithEncoder(50, 80);
-  backLinefollowUntil(1);
+  backLinefollowFiveUntil(1);
   delay(500);
   left90(80);
   delay(500);
-  linefollowEncoder(75);
+  linefollowFiveEncoder(80);
   delay(500);
-  backLinefollowUntil(5);
-  backLinefollowEncoder(200);
+  backLinefollowFiveUntil(5);
+  backLinefollowFiveEncoder(300);
 }

@@ -32,7 +32,7 @@ void blue_grid7()
   backLinefollowFiveEncoder(60);
   backLinefollowFiveUntil(2);
   delay(500);
-  backLinefollowEncoder(100);
+  backLinefollowEncoder(105);
   backServoMove(0, 90); // tree pick up
   delay(200);
   rightTurnEncoder(170, (220 * 2), 150);

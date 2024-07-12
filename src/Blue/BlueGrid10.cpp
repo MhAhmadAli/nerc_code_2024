@@ -20,6 +20,7 @@ void blue_grid10()
   delay(500);
   frontServo.write(0);
   backLinefollowFiveEncoder(100);
+  delay(200);
   linefollowFiveUntil(2);
   delay(500);
   linefollowEncoder(100);
@@ -45,11 +46,13 @@ void blue_grid10()
   frontServoMove(90, 0); // rock drop
   delay(200);
   backwardWithEncoder(50, 80);
+  delay(200);
   backLinefollowUntil(3);
   delay(500);
   right90(80);
   delay(500);
   linefollowFiveEncoder(110);
+  delay(200);
   backLinefollowFiveEncoder(265);
   backServoMove(90, 0); // tree drop
   // delay(500);
@@ -64,11 +67,13 @@ void blue_grid10()
   leftTurnEncoder(80, 240);
   delay(500);
   backLinefollowFiveEncoder(100);
+  delay(200);
   linefollowFiveUntil(3);
   delay(500);
   leftTurnEncoder(80, 240);
   delay(500);
   backLinefollowFiveEncoder(80);
+  delay(200);
   linefollowFiveUntil(2);
   delay(500);
   leftTurnEncoder(80, 240);
@@ -104,6 +109,7 @@ void blue_grid10()
   leftTurnEncoder(80, 240);
   delay(500);
   backLinefollowFiveEncoder(100);
+  delay(200);
   linefollowFiveUntil(2);
   delay(500);
   leftTurnEncoder(80, 240);
