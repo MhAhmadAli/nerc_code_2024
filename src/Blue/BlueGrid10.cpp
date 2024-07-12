@@ -34,7 +34,7 @@ void blue_grid10() {
   backLinefollowEncoder(100);
   backServoMove(0, 90); // tree pick up
   rightTurnEncoder(170, (220 * 2), 150);
-  backLinefollowFiveEncoder(350);
+  backLinefollowFiveEncoder(450);
   backLinefollowFiveUntil(1);
   delay(500);
   linefollowFiveEncoder(420);
@@ -43,8 +43,8 @@ void blue_grid10() {
   delay(500);
   right90(80);
   delay(500);
-  linefollowFiveEncoder(80);
-  backLinefollowFiveEncoder(210);
+  linefollowFiveEncoder(110);
+  backLinefollowFiveEncoder(260);
   backServoMove(90, 0); // tree drop
   // =================== first tree and rock end ===================
 
@@ -75,7 +75,7 @@ void blue_grid10() {
   linefollowFiveEncoder(350);
   linefollowFiveUntil(1);
   delay(500);
-  backLinefollowFiveEncoder(410);
+  backLinefollowFiveEncoder(405);
   backServoMove(90, 0); // tree drop
   linefollowUntil(1);
   delay(500);
@@ -107,10 +107,12 @@ void blue_grid10() {
   delay(500);
   backLinefollowFiveEncoder(410);
   backServoMove(90, 0); // tree drop
+  delay(500);
   linefollowUntil(2);
   delay(500);
-  linefollowEncoder(80);
+  linefollowEncoder(85);
   frontServoMove(90, 0); // rock drop
+  delay(500);
   // =================== third tree and rock end ===================
 
   backLinefollowFiveUntil(1);

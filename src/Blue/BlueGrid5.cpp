@@ -53,7 +53,7 @@ void blue_grid5()
   // adjust to line for tree drop
   backLinefollowUntil(2);
   delay(500);
-  linefollowEncoder(400);
+  linefollowEncoder(410);
   delay(500);
   // drop tree
   frontServoMove(90, 0); // rock drop
@@ -61,7 +61,7 @@ void blue_grid5()
   // move back 3 strip to drop rock at original tree position
   backLinefollowFiveUntil(3);
   delay(500);
-  backLinefollowEncoder(100);
+  backLinefollowEncoder(85);
   delay(500);
   // drop rock
   backServoMove(90, 0); // tree drop
@@ -120,7 +120,7 @@ void blue_grid5()
   // move back 2 strip to drop rock at original tree position
   backLinefollowUntil(2);
   delay(500);
-  backLinefollowEncoder(80);
+  backLinefollowEncoder(90);
   delay(500);
   // drop rock
   backServoMove(90, 0);
@@ -152,7 +152,7 @@ void blue_grid5()
   // delay(500);
   backLinefollowFiveUntil(2);
   delay(500);
-  linefollowEncoder(400);
+  linefollowEncoder(410);
   delay(500);
   frontServoMove(90, 0); // rock drop
   delay(500);

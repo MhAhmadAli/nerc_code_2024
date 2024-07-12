@@ -182,44 +182,44 @@ void red()
   delay(1000);
 
   if (!switch1 && !switch2 && !switch3 && !switch4)
-  { // 0001
+  { // 0000
     red_grid1();
   }
   else if (switch1 && !switch2 && !switch3 && !switch4)
-  { // 0010
+  { // 0001
     red_grid2();
+  }
+  else if (!switch1 && switch2 && !switch3 && !switch4)
+  { // 0010
+    red_grid3();
   }
   else if (switch1 && switch2 && !switch3 && !switch4)
   { // 0011
-    red_grid3();
+    red_grid4();
   }
   else if (!switch1 && !switch2 && switch3 && !switch4)
   { // 0100
-    red_grid4();
-  }
-  else if (switch1 && !switch2 && switch3 && !switch4)
-  { // 0101
     red_grid5();
   }
-  else if (!switch1 && switch2 && switch3 && !switch4) 
-  { // 0110
+  else if (switch1 && !switch2 && switch3 && !switch4) 
+  { // 0101
     red_grid6();
+  }
+  else if (!switch1 && switch2 && switch3 && !switch4)
+  { // 0110
+    red_grid7();
   }
   else if (switch1 && switch2 && switch3 && !switch4)
   { // 0111
-    red_grid7();
+    red_grid8();
   }
   else if (!switch1 && !switch2 && !switch3 && switch4)
   { // 1000
-    red_grid8();
-  }
-  else if (switch1 && !switch2 && !switch3 && switch4)
-  { // 1001
     red_grid9();
   }
-  else if (!switch1 && switch2 && !switch3 && switch4)
+  else if (switch1 && !switch2 && !switch3 && switch4)
   {
-    //1010 
+    //1001  
     red_grid10();
   }
 
@@ -245,43 +245,43 @@ void blue()
   delay(1000);
 
   if (!switch1 && !switch2 && !switch3 && !switch4)
-  { // 0001
+  { // 0000
     blue_grid1();
   }
   else if (switch1 && !switch2 && !switch3 && !switch4)
-  { // 0010
+  { // 0001
     blue_grid2();
+  }
+  else if (!switch1 && switch2 && !switch3 && !switch4)
+  { // 0010
+    blue_grid3();
   }
   else if (switch1 && switch2 && !switch3 && !switch4)
   { // 0011
-    blue_grid3();
+    blue_grid4();
   }
   else if (!switch1 && !switch2 && switch3 && !switch4)
   { // 0100
-    blue_grid4();
+    blue_grid5();
   }
   else if (switch1 && !switch2 && switch3 && !switch4)
   { // 0101
-    blue_grid5();
+    blue_grid6();
   }
   else if (!switch1 && switch2 && switch3 && !switch4)
   { // 0110
-    blue_grid6();
+    blue_grid7();
   }
   else if (switch1 && switch2 && switch3 && !switch4)
   { // 0111
-    blue_grid7();
+    blue_grid8();
   }
   else if (!switch1 && !switch2 && !switch3 && switch4)
   { // 1000
-    blue_grid8();
+    blue_grid9();
   }
   else if (switch1 && !switch2 && !switch3 && switch4)
   { // 1001
-    blue_grid9();
-  }
-  else if (!switch1 && switch2 && !switch3 && switch4)
-  { // 1010
     blue_grid10();
   }
 

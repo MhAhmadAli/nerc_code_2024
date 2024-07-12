@@ -102,7 +102,7 @@ void blue_grid4()
   // delay(500);
   backLinefollowUntil(2);
   delay(500);
-  backLinefollowEncoder(80);
+  backLinefollowEncoder(90);
   backServoMove(90, 0); // tree drop
   // delay(500);
   // ============= second tree and rock end =============
@@ -135,7 +135,8 @@ void blue_grid4()
   // delay(500);
   backLinefollowUntil(2);
   delay(500);
-  backLinefollowEncoder(80);
+  backLinefollowEncoder(90);
+  delay(200);
   backServoMove(90, 0); // tree drop
   // ================ third tree and rock end =============
 

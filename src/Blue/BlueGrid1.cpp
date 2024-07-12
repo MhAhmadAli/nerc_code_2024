@@ -30,7 +30,7 @@ void blue_grid1()
 
   // ============= first tree and rock =============
   // move until first tree
-  linefollowFiveEncoder(280);
+  linefollowFiveEncoder(305);
   // delay(500);
   // move servo up after pickup
   frontServoMove(0, 90);
@@ -56,7 +56,7 @@ void blue_grid1()
   rightTurnEncoder(170, (220 * 2) , 150);
   // delay(500);
   // adjust to line for tree drop
-  backLinefollowFiveEncoder(350);
+  backLinefollowFiveEncoder(370);
   backLinefollowFiveUntil(1);
   delay(500);
   linefollowEncoder(420);
@@ -107,7 +107,7 @@ void blue_grid1()
   backLinefollowUntil(2);
   delay(500);
   // move to pick up rock
-  backLinefollowEncoder(100);
+  backLinefollowEncoder(110);
   // delay(500);
   backServoMove(0, 90);
   // delay(500);
@@ -149,7 +149,7 @@ void blue_grid1()
   frontServo.write(0);
   delay(500);
   // move forward to tree
-  linefollowEncoder(200);
+  linefollowEncoder(185);
   // delay(500);
   // move front servo up after tree pickup
   frontServoMove(0, 90);

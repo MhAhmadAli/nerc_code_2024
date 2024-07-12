@@ -53,7 +53,7 @@ void red_grid6()
   // adjust to line for tree drop
   backLinefollowFiveUntil(2);
   delay(500);
-  linefollowEncoder(410);
+  linefollowEncoder(420);
   delay(500);
   // drop tree
   frontServoMove(90, 0); // rock drop
@@ -93,7 +93,7 @@ void red_grid6()
   // delay(500);
   linefollowFiveUntil(2);
   delay(500);
-  backLinefollowEncoder(410);
+  backLinefollowEncoder(420);
   delay(500);
   backServoMove(90, 0); // rock drop
   delay(500);
@@ -129,7 +129,7 @@ void red_grid6()
   delay(500);
   linefollowFiveUntil(2);
   delay(500);
-  backLinefollowEncoder(410);
+  backLinefollowEncoder(420);
   delay(500);
   backServoMove(90, 0); // rock drop
   delay(500);

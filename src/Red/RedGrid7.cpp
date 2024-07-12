@@ -15,7 +15,7 @@ void red_grid7() {
   linefollowFiveEncoder(80);
   linefollowFiveUntil(4);
   delay(500);
-  leftTurnEncoder(80, 240);
+  right90(80);
   delay(500);
   backLinefollowFiveEncoder(80);
   frontServo.write(0);
@@ -24,7 +24,7 @@ void red_grid7() {
   frontServoMove(0, 90); // rock pick up
   linefollowUntil(1);
   delay(500);
-  leftTurnEncoder(80, 240);
+  right90(80);
   backServo.write(0);
   delay(500);
   backLinefollowFiveEncoder(60);
@@ -69,6 +69,7 @@ void red_grid7() {
   delay(500);
   backLinefollowFiveEncoder(420);
   backServoMove(90, 0); // tree drop
+  delay(500);
   linefollowUntil(1);
   delay(500);
   linefollowEncoder(100);
@@ -96,20 +97,23 @@ void red_grid7() {
   backLinefollowFiveEncoder(80);
   linefollowFiveEncoder(150);
   frontServoMove(0, 90); // rock pick up
+  delay(200);
   rightTurnEncoder(170, (220 * 2), 150);
   linefollowFiveEncoder(350);
   linefollowFiveUntil(1);
   delay(500);
   backLinefollowFiveEncoder(420);
   backServoMove(90, 0); // tree drop
+  delay(500);
   linefollowUntil(1);
   delay(500);
-  leftTurnEncoder(80, 240);
+  leftTurnEncoder(80,240);
   linefollowFiveEncoder(80);
-  linefollowFiveUntil(2);
+  linefollowFiveUntil(3);
   delay(500);
   linefollowFiveEncoder(80);
   frontServoMove(90, 0); // rock drop
+  delay(500);
   // =================== third tree and rock end ===================
 
   backLinefollowUntil(1);
