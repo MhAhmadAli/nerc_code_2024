@@ -50,7 +50,7 @@ void blue_grid9()
   backLinefollowFiveEncoder(350);
   backLinefollowUntil(1);
   delay(500);
-  linefollowEncoder(410);
+  // linefollowEncoder(410);
   linefollowUntil(2);
   linefollowEncoder(105);
   // delay(500);
